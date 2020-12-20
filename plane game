@@ -1,0 +1,16 @@
+ett spel för ögon test som randomera varje 3-5 sekonder ett bokstavl och för varje rätt ska få en poing annas game over .ska spara det besta highscoren  med namn i data base .
+
+1.text och background samma farg men en av dem ska vara typ unseeable = OK
+2.random text = OK
+3. rätt svar få poing = OK
+4. fel svar  eller klicka på text få gameover =  OK
+5.komma slut namn och score  = OK
+6.om det under 10 eller top 10 ska inte lägga namn eller point ok
+7. lägga på data base och funkar . OK
+
+
+
+
+
+Använda aldrig get samma gång för att det blir änkel att föska
+t.ex = lägga på plats link egen namn och score själv
