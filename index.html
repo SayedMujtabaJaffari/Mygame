@@ -55,24 +55,25 @@
     <form action="/show" method="post">
         <header>
             <p>Your Score : <span name="score" id="score">0</span></p>
-            <p>What you can see here write under! </p>
-            <input id="jo" type="text" size="40">
+            
+            <input id="jo" type="text" size="40" placeholder="What you can see  write here!">
         </header>
         <div>
             <input name="name" id="name" type="text" placeholder="Enter your name"><input id="result" name="score"
                 type="hidden">
             <button id="btn" type="hidden">Submit</button>
-
+        </div>
+        </form>
             <button onclick="myshow(name,score)">Hight scores</button>
             <ul id="higs"></ul>
 
-        </div>
+        
 
         <div id="back" class="text-container">
             <h1 id="h1"></h1>
 
         </div>
-    </form>
+  
     <script>
 
 
@@ -164,9 +165,13 @@
 
 
         function myshow() {
-            $.get("/showhight", function (name, score) {
-                $('#higs').append(`<li style="color:white;">${name}:${score}</li>`)
-                console.log(name, score);
+            $.get("/showhight", function (data) {
+                for (let i = 0; i < data.length; i++) {
+                    
+                    
+                     $('#higs').append(`<li style="color:white;">${data[i].name}:${data[i].score}</li>`)
+                }
+                console.log(data);
             })
         }
 

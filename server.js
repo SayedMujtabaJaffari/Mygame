@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true })); // support encoded bodies
 app.get('/showhight', function (req, res) {
 
 
-    let sql = `SELECT * FROM listop ORDER BY score`;
+    let sql = `SELECT * FROM listop ORDER BY score DESC`;
     db.all(sql, (err, rows) => {
         if (err) {
             throw err
@@ -30,7 +30,7 @@ app.post('/show', function (req, res) {
     let score = parseInt(req.body.score);
 
     if (score <= 3) {
-        res.send(name + ' yours score' + score + ' is under 3 and we can not put in server')
+        res.send(name + ' yours score ' + score + ' is under 3 and we can not put in server.')
 
     }
     else if (name == "") {
@@ -39,6 +39,7 @@ app.post('/show', function (req, res) {
 
     else {
         console.log(name, score);
+        if(score !== "" &&name !== ""){
         let sql = `INSERT INTO listop  (name,score) VALUES (?, ?)`
         db.run(sql, [name, score], (err) => {
             if (err) {
@@ -50,6 +51,7 @@ app.post('/show', function (req, res) {
 
 
         })
+    }
     }
 
 })
