@@ -89,6 +89,8 @@
         let pu = $("#name").hide();
         let page = jio.addEventListener('mouseup', gh);
 
+        let accsess= false;
+
         function gh() {
             console.log('hej');
             gameOver()
@@ -164,7 +166,10 @@
         // $.get("/showhight",me());
 
 
+        
         function myshow() {
+           
+         document.getElementById('higs').innerHTML="";
             $.get("/showhight", function (data) {
                 for (let i = 0; i < data.length; i++) {
                     
@@ -174,6 +179,7 @@
                 console.log(data);
             })
         }
+    
 
 
     </script>
